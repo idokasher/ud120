@@ -29,6 +29,7 @@ features_train, features_test, labels_train, labels_test = execute(lambda : prep
 ### your code goes here ###
 # Imports
 from sklearn.naive_bayes import GaussianNB
+from sklearn import metrics
 
 # Visualize data
 
@@ -45,11 +46,12 @@ pred = execute(lambda : clf.predict(features_test), "Predict time")
 # Compute scores
 accuracy1 = sum(1 for p, l in zip(pred, labels_test) if p == l) / float(len(labels_test))
 accuracy2 = clf.score(features_test, labels_test)
+accuracy3 = metrics.accuracy_score(pred, labels_test)
 
 print("Accuracy1: %.2f" % accuracy1)
 print("Accuracy2: %.2f" % accuracy2)
+print("Accuracy3: %.2f" % accuracy3)
 
-   
 #########################################################
 
 
